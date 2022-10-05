@@ -1,0 +1,202 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/javascript-node
+{
+	"name": "Node.js",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 18, 16, 14.
+		// Append -bullseye or -buster to pin to an OS version.
+		// Use -bullseye variants on local arm64/Apple Silicon.
+		"args": {
+			"VARIANT": "14-bullseye"
+		}
+	},
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"nrwl.angular-console",
+				"hardikpthv.NgRxSnippets"
+			]
+		}
+	},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "yarn install",
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "node",
+	"settings": {
+		"editor.formatOnPaste": false,
+		"editor.formatOnSave": true,
+		/*
+		 * Don't use the value "modificationsIfAvailable" for now, because there is a bug in the extension prettier that 
+		 * causes the prettier to add unnecessary semicolons, see https://github.com/prettier/prettier/issues/12964
+		 */
+		"editor.formatOnSaveMode": "file",
+		"editor.codeActionsOnSave": {
+			//These settings shouldn't be enabled. It will cause all auto fixes to be applied automatically. The developer
+			//should have the option to decide which auto fix to apply. This option is also very slow and causes every
+			//save action to take up to one minute for one file.
+			"source.fixAll": false,
+			"source.organizeImports": true
+		},
+		//This setting is overridden by the .editorconfig in the root folder
+		"editor.tabSize": 4,
+		//This setting is overridden by the .editorconfig in the root folder
+		"editor.insertSpaces": false,
+		"editor.detectIndentation": false,
+		"editor.stickyTabStops": false,
+		//Updates the start or end-tag in html automatically, when one of the tags is edited
+		"editor.linkedEditing": true,
+		//The max. line length is defined in the .editorconfig file
+		"editor.rulers": [
+			125
+		],
+		"typescript.preferences.importModuleSpecifier": "relative",
+		"explorer.confirmDelete": false,
+		//Don't set files.autoSave=onFocusChange, because it saves files automatically, when the editor loses the focus.
+		//This is problematic in situations, when you need to have control on when to save a file.
+		"files.autoSave": "off",
+		//Setting the default formatter for all languages doesn't work as expected. It's necessary to set the default
+		//formatter for every language, otherwise the files will not be formatted automatically on save, when the setting
+		//editor.formatOnSave is set to true.
+		"[html]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[typescript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[scss]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[dockercompose]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
+		"[markdown]": {
+			"editor.defaultFormatter": "vscode.html-language-features"
+		},
+		//Sets the settings of the extension Task Explorer
+		"taskExplorer.enableAnt": false,
+		"taskExplorer.enableAppPublisher": false,
+		"taskExplorer.enableBash": false,
+		"taskExplorer.enableBatch": false,
+		"taskExplorer.enableGradle": false,
+		"taskExplorer.enableGrunt": false,
+		"taskExplorer.enableGulp": false,
+		"taskExplorer.enableMake": false,
+		"taskExplorer.enableMaven": false,
+		"taskExplorer.enableNsis": false,
+		"taskExplorer.enablePerl": false,
+		"taskExplorer.enablePipenv": false,
+		"taskExplorer.enablePowershell": false,
+		"taskExplorer.enablePython": false,
+		"taskExplorer.enableRuby": false,
+		"taskExplorer.enableSideBar": true,
+		"taskExplorer.groupStripTaskLabel": false,
+		"taskExplorer.showFavoritesButton": false,
+		"taskExplorer.showLastTasks": false,
+		"taskExplorer.showRunningTask": false,
+		"taskExplorer.enableTsc": false,
+		"taskExplorer.groupSeparator": " - ",
+		"taskExplorer.clickAction": "Open",
+		"taskExplorer.groupWithSeparator": true,
+		//Sets the settings of the extension C#
+		"csharp.suppressHiddenDiagnostics": false,
+		"omnisharp.enableDecompilationSupport": true,
+		"omnisharp.enableImportCompletion": true,
+		"omnisharp.enableRoslynAnalyzers": true,
+		"omnisharp.organizeImportsOnFormat": true,
+		"csharp.semanticHighlighting.enabled": false,
+		"typescript.implementationsCodeLens.enabled": true,
+		"typescript.referencesCodeLens.enabled": true,
+		"typescript.referencesCodeLens.showOnAllFunctions": true,
+		"javascript.referencesCodeLens.showOnAllFunctions": true,
+		"javascript.referencesCodeLens.enabled": true,
+		"files.associations": {
+			"*.json": "jsonc"
+		},
+		"eslint.format.enable": true,
+		"files.eol": "\n"
+	},
+	"extensions": [
+		//Docker
+		"ms-azuretools.vscode-docker",
+		//TSLint
+		// "ms-vscode.vscode-typescript-tslint-plugin",
+		//JavaScript Debugger Companion Extension
+		"ms-vscode.js-debug",
+		//Debugger for Firefox
+		"firefox-devtools.vscode-firefox-debug",
+		//Git Graph
+		"mhutchie.git-graph",
+		//Task Explorer
+		"spmeesseman.vscode-taskexplorer",
+		//Visual Studio IntelliCode
+		"visualstudioexptteam.vscodeintellicode",
+		//Tailwind CSS IntelliSensePreview
+		"bradlc.vscode-tailwindcss",
+		//Prettier - Code formatter
+		"esbenp.prettier-vscode",
+		//Angular Language Service
+		"angular.ng-template",
+		//Angular Schematics
+		"cyrilletuzi.angular-schematics",
+		//ESLint
+		"dbaeumer.vscode-eslint",
+		//Path Intellisense
+		"christian-kohler.path-intellisense",
+		//Coverage Gutters
+		"ryanluker.vscode-coverage-gutters",
+		//Reference Search View
+		"ms-vscode.references-view",
+		//shell-format
+		"foxundermoon.shell-format",
+		//markdownlint
+		"davidanson.vscode-markdownlint",
+		//npm
+		"eg2.vscode-npm-script",
+		//Angular Snippets (Version 12)
+		"johnpapa.angular2",
+		//Git History
+		"donjayamanne.githistory",
+		// GitLens — Git supercharged
+		"eamodio.gitlens",
+		//XML
+		"redhat.vscode-xml",
+		//Code Spell Checker
+		"streetsidesoftware.code-spell-checker",
+		//German - Code Spell Checker
+		"streetsidesoftware.code-spell-checker-german",
+		//GitHub Copilot
+		"GitHub.copilot",
+		/*
+		 * Excluded Extensions:
+		 *
+		 * XML Tools (dotjoshjohnson.xml)
+		 * The xml formatting of dotnet project files doesn't work with this extension.
+		 *
+		 * Todo Tree (gruntfuggly.todo-tree)
+		 * This extension makes intelli sense slow.
+		 *
+		 * Debugger for Microsoft Edge (msjsdiag.debugger-for-edge)
+		 * This extension is not needed.
+		 *
+		 * C# Format Usings (gaoshan0621.csharp-format-usings)
+		 * This extension is not needed.
+		 *
+		 * EditorConfig for VS Code (editorconfig.editorconfig)
+		 * This extension is not needed.
+		 *
+		 * VS Sharper for C# (eservice-online.vs-sharper)
+		 * Creates files with CRLF lines endings. There is no way to changed the lines endings.
+		 */
+		"nrwl.angular-console"
+	]
+}

@@ -17,14 +17,13 @@
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"dbaeumer.vscode-eslint",
-				"nrwl.angular-console",
-				"hardikpthv.NgRxSnippets"
 			]
 		}
 	},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [],
+  "runArgs": [
+		"--name",
+		"angular_devcontainer"
+	],
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "yarn install",
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
@@ -33,7 +32,7 @@
 		"editor.formatOnPaste": false,
 		"editor.formatOnSave": true,
 		/*
-		 * Don't use the value "modificationsIfAvailable" for now, because there is a bug in the extension prettier that 
+		 * Don't use the value "modificationsIfAvailable" for now, because there is a bug in the extension prettier that
 		 * causes the prettier to add unnecessary semicolons, see https://github.com/prettier/prettier/issues/12964
 		 */
 		"editor.formatOnSaveMode": "file",
@@ -107,13 +106,6 @@
 		"taskExplorer.groupSeparator": " - ",
 		"taskExplorer.clickAction": "Open",
 		"taskExplorer.groupWithSeparator": true,
-		//Sets the settings of the extension C#
-		"csharp.suppressHiddenDiagnostics": false,
-		"omnisharp.enableDecompilationSupport": true,
-		"omnisharp.enableImportCompletion": true,
-		"omnisharp.enableRoslynAnalyzers": true,
-		"omnisharp.organizeImportsOnFormat": true,
-		"csharp.semanticHighlighting.enabled": false,
 		"typescript.implementationsCodeLens.enabled": true,
 		"typescript.referencesCodeLens.enabled": true,
 		"typescript.referencesCodeLens.showOnAllFunctions": true,
@@ -134,8 +126,6 @@
 		"ms-vscode.js-debug",
 		//Debugger for Firefox
 		"firefox-devtools.vscode-firefox-debug",
-		//Git Graph
-		"mhutchie.git-graph",
 		//Task Explorer
 		"spmeesseman.vscode-taskexplorer",
 		//Visual Studio IntelliCode
@@ -164,10 +154,14 @@
 		"eg2.vscode-npm-script",
 		//Angular Snippets (Version 12)
 		"johnpapa.angular2",
+		//Git Graph
+		"mhutchie.git-graph",
 		//Git History
 		"donjayamanne.githistory",
 		// GitLens — Git supercharged
 		"eamodio.gitlens",
+    //Name: Git Tree Compare
+    "letmaik.git-tree-compare",
 		//XML
 		"redhat.vscode-xml",
 		//Code Spell Checker
@@ -176,27 +170,11 @@
 		"streetsidesoftware.code-spell-checker-german",
 		//GitHub Copilot
 		"GitHub.copilot",
-		/*
-		 * Excluded Extensions:
-		 *
-		 * XML Tools (dotjoshjohnson.xml)
-		 * The xml formatting of dotnet project files doesn't work with this extension.
-		 *
-		 * Todo Tree (gruntfuggly.todo-tree)
-		 * This extension makes intelli sense slow.
-		 *
-		 * Debugger for Microsoft Edge (msjsdiag.debugger-for-edge)
-		 * This extension is not needed.
-		 *
-		 * C# Format Usings (gaoshan0621.csharp-format-usings)
-		 * This extension is not needed.
-		 *
-		 * EditorConfig for VS Code (editorconfig.editorconfig)
-		 * This extension is not needed.
-		 *
-		 * VS Sharper for C# (eservice-online.vs-sharper)
-		 * Creates files with CRLF lines endings. There is no way to changed the lines endings.
-		 */
-		"nrwl.angular-console"
+    //NX Console
+		"nrwl.angular-console",
+    //eslint
+    "dbaeumer.vscode-eslint",
+    "nrwl.angular-console",
+    "hardikpthv.NgRxSnippets"
 	]
 }

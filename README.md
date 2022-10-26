@@ -2,7 +2,7 @@
 
 # NgrxNxWorkshop
 
-This project was generated using [Nx](https://nx.dev).
+This project was generated using [Nx](https://nx.dev) and forked from [github.com/alex-okrushko/ngrx-nx-workshop](https://github.com/alex-okrushko/ngrx-nx-workshop).
 
 <p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
 
